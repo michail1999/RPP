@@ -1,4 +1,18 @@
 package com.company;
+import javax.swing.*;
+
+public class Main{
+
+    public static void main(String[] args) {
+        Window window = new Window("Practic 1");
+        window.setVisible(true);
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setSize(300 , 200);
+        window.setResizable(false);
+        window.setLocationRelativeTo(null);
+    }
+}
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,21 +61,24 @@ public class Window extends JFrame {
                 t1.setText(null);
                 t2.setText(null);
                 t3.setText(null);
-                l4.setText(null);
-                l5.setText(null);
+                l4.setText("");
+                l5.setText("");
             }
         }
     }
     public void math(){
-        a = Double.parseDouble(t1.getText());
-        b = Double.parseDouble(t2.getText());
-        c = Double.parseDouble(t3.getText());
-        discr = Math.sqrt((b*b) - (4 * a *c));
-        x1 = (-b + discr) / (2*a);
-        x2 = (-b - discr) / (2*a);
-        s1 = "1 корень равен " +x1;
-        s2 = "2 корень равен " +x2;
-        l4.setText(s1);
-        l5.setText(s2);
+        try {
+            a = Double.parseDouble(t1.getText());
+            b = Double.parseDouble(t2.getText());
+            c = Double.parseDouble(t3.getText());
+            discr = Math.sqrt((b*b) - (4 * a *c));
+            x1 = (-b + discr) / (2*a);
+            x2 = (-b - discr) / (2*a);
+            s1 = "1 корень равен " +x1;
+            s2 = "2 корень равен " +x2;
+            l4.setText(s1);
+            l5.setText(s2);
+        } catch (Exception ex){ JOptionPane.showMessageDialog(null,"Введите в поле число!"); }
     }
 }
+
