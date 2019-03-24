@@ -1,0 +1,93 @@
+package com.company;
+
+import javax.swing.*;
+
+public class Main{
+
+    public static void main(String[] args) {
+        Window window = new Window("Practic 1  Дюндиков");
+        window.setVisible(true);
+        window.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        window.setSize(300 , 200);
+        window.setResizable(false);
+        window.setLocationRelativeTo(null);
+    }
+}
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Window extends JFrame {
+    double a,b,c;
+    double x1,x2;
+    JButton button, button2;
+    JTextField t1, t2, t3, t4;
+    JLabel l1,l2,l3,l4,l5, diag;
+    String s1,s2;
+    eHandler handler = new eHandler();
+    public Window(String s){
+        super(s);
+        setLayout(new FlowLayout());
+        button = new JButton("Найти площадь");
+        button2 = new JButton("Найти сторону");
+        t1 = new JTextField(15);
+        t2 = new JTextField(15);
+        t3 = new JTextField(15);
+        t4 = new JTextField(15);
+        l1 = new JLabel("Введите сторону:    ");
+        l2 = new JLabel("  Введите высоту:    ");
+        l3 = new JLabel("Введите диагональ:");
+        diag = new JLabel("Введите диагональ:");
+        l4 = new JLabel();
+        l5 = new JLabel();
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(l3);
+        add(t3);
+        add(diag);
+        add(t4);
+        add(button);
+        add(button2);
+        add(l4);
+        add(l5);
+        button.addActionListener(handler);
+        button2.addActionListener(handler);
+    }
+    public class eHandler implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == button){
+                math(t1.getText(), t2.getText());
+            } else if (e.getSource() == button2){
+                math(t1.getText(),t3.getText(),t4.getText());
+            }
+        }
+    }
+    // метод для нахождения площади
+    public void math(String stor, String vis){
+        try {
+            a = Double.parseDouble(stor);
+            b = Double.parseDouble(vis);
+            x1 = a*b;
+            s1 = "Площадь равна " +x1;
+            l4.setText(s1);
+            l5.setText("");
+        } catch (Exception ex){ JOptionPane.showMessageDialog(null,"Введите в поле число!"); }
+    }
+    //перегруженный метод для нахождения стороны
+    public void math(String stor, String diag1, String diag2){
+        double d1, d2;
+        try {
+            a = Double.parseDouble(stor);
+            d1 = Double.parseDouble(diag1);
+            d2 = Double.parseDouble(diag2);
+            x2 = Math.sqrt((2*d1*d1) + (2*d2*d2) - (4*a*a));
+            s2 = "Сторона равна " + x2;
+            l4.setText(s2);
+        }catch (Exception ex){ JOptionPane.showMessageDialog(null,"Введите в поле число!"); }
+    }
+}
