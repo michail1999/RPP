@@ -1,23 +1,67 @@
 package com.company;
 
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Main {
-
-    public static void main(String[] args) {
-        double a,b,c,discr,x1,x2;
-        System.out.println("Введите a,b,c:");
-        Scanner scanner = new Scanner(System.in);
-        a = scanner.nextInt();
-        b = scanner.nextInt();
-        c = scanner.nextInt();
+public class Window extends JFrame {
+    double a,b,c;
+    double discr,x1,x2;
+    JButton button, button2;
+    JTextField t1, t2, t3;
+    JLabel l1,l2,l3,l4,l5;
+    String s1,s2;
+    eHandler handler = new eHandler();
+    public Window(String s){
+        super(s);
+        setLayout(new FlowLayout());
+        button = new JButton("Посчитать");
+        button2 = new JButton("Очистить");
+        t1 = new JTextField(15);
+        t2 = new JTextField(15);
+        t3 = new JTextField(15);
+        l1 = new JLabel("Введите a:");
+        l2 = new JLabel("Введите b:");
+        l3 = new JLabel("Введите c:");
+        l4 = new JLabel();
+        l5 = new JLabel();
+        add(l1);
+        add(t1);
+        add(l2);
+        add(t2);
+        add(l3);
+        add(t3);
+        add(button);
+        add(button2);
+        add(l4);
+        add(l5);
+        button.addActionListener(handler);
+        button2.addActionListener(handler);
+    }
+    public class eHandler implements ActionListener{
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == button){
+                math();
+            } else if (e.getSource() == button2){
+                t1.setText(null);
+                t2.setText(null);
+                t3.setText(null);
+                l4.setText(null);
+                l5.setText(null);
+            }
+        }
+    }
+    public void math(){
+        a = Double.parseDouble(t1.getText());
+        b = Double.parseDouble(t2.getText());
+        c = Double.parseDouble(t3.getText());
         discr = Math.sqrt((b*b) - (4 * a *c));
         x1 = (-b + discr) / (2*a);
         x2 = (-b - discr) / (2*a);
-        System.out.println(a +"x*x " + b + "x" + c);
-        System.out.println("Дискриминант = " + discr);
-        System.out.println("x1=" + x1);
-        System.out.println("x2=" + x2);
-
+        s1 = "1 корень равен " +x1;
+        s2 = "2 корень равен " +x2;
+        l4.setText(s1);
+        l5.setText(s2);
     }
 }
