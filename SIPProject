@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+
+public class Field {
+    /*У нас будет массив координат+ массив бонусных клеток,
+    сделал его листом, чтобы можно было ллегче поле увеличить
+    проверка пустоты клетки осуществляется с помощью буленовского листа
+    true - клетка свободна, false - клетка занята
+     */
+    int manda = 0;
+    boolean b;
+    private ArrayList<Integer> bonusCell = new ArrayList<>();
+    private ArrayList<Integer> koordCell = new ArrayList<>();
+    private ArrayList<Boolean> boolKoord = new ArrayList<>();
+    public boolean walk(int koord){
+        for(int i =0; i < koordCell.size(); i++){
+            if(koord == koordCell.get(i)){
+                if(boolKoord.get(i) == false){
+                    b = false;
+                }else {
+                    if (koord == bonusCell.get(i)) {
+                        manda++;
+                        b = true;
+                    }
+                }
+            }
+        }
+        return b;
+    }
+}
+
+
+public class Character {
+    int hp;
+    int koord;
+    boolean b;
+    Field field = new Field();
+    public void movement(int figureKoord){
+        b = field.walk(koord);
+        if (b == true){
+            //тут мы ходим
+        }else
+        {
+           //а тут мы атакуем
+        }
+    }
+}
+
+
+import java.util.ArrayList;
+
+public class Player {
+    int hpKingdom;
+    int manda = 0;
+    ArrayList<Integer> figure  = new ArrayList<Integer>();
+    // Тут будет обращение к мат модулю
+}
