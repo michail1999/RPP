@@ -72,10 +72,15 @@ public class Window extends JFrame {
             b = Double.parseDouble(t2.getText());
             c = Double.parseDouble(t3.getText());
             discr = Math.sqrt((b*b) - (4 * a *c));
-            x1 = (-b + discr) / (2*a);
-            x2 = (-b - discr) / (2*a);
-            s1 = "1 корень равен " +x1;
-            s2 = "2 корень равен " +x2;
+            if (discr >= 0){
+                x1 = (-b + discr) / (2 * a);
+                x2 = (-b - discr) / (2 * a);
+                s1 = "1 корень равен " + x1;
+                s2 = "2 корень равен " + x2;
+            } else {
+                s1 = "Дискриминант меньше нуля";
+                s2 = " введите другие значения";
+            }
             l4.setText(s1);
             l5.setText(s2);
         } catch (Exception ex){ JOptionPane.showMessageDialog(null,"Введите в поле число!"); }
