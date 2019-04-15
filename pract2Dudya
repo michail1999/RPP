@@ -128,70 +128,20 @@ public class Root extends javax.swing.JFrame {
     // Executable button 2
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
 
-        String vowels = "QWERTYUIOPASDFGHJKLZXCVBNM";
-
         String wholeText = jTextArea2.getText();
         int length = wholeText.length();
         int copyLen = length;
         int startPos = 0;
-
-        while(copyLen != 0) {
-
-            String currentWord = "";
-
-            for(int i = startPos; i < length; ++i){
-                if(wholeText.charAt(i) == ' '){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) == ','){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) == '!'){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) == '.'){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) == '?'){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) == '\n'){
-                    startPos++;
-                    copyLen--;
-                    break;
-                }
-                else if(wholeText.charAt(i) != '\0'){
-                    currentWord += wholeText.charAt(i);
-                    startPos++;
-                    copyLen--;
-                }
-            }
-
-            int wordLen = currentWord.length();
-
-            if(!"".equals(currentWord))
-            {
-                for(int i = 0; i < vowels.length(); ++i)
-                {
-                    if(currentWord.charAt(0) == vowels.charAt(i))
-                    {
-                        jTextArea3.append(currentWord + '\n');
-                        break;
-                    }
+        String s = "";
+        for (int i = 0; i< length; i++){
+            if (Character.isDigit(wholeText.charAt(i))){
+                startPos = Character.digit(wholeText.charAt(i),10);
+                if (startPos % 2 == 0){
+                    s = startPos + "";
+                    jTextArea3.append(s + '\n');
                 }
             }
         }
-
     }
 
     public static void main(String args[]) {
