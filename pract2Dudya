@@ -133,15 +133,19 @@ public class Root extends javax.swing.JFrame {
         int length = wholeText.length();
         int copyLen = length;
         int startPos = 0;
+        String ch = "";
         String s = "";
         for (int i = 0; i< length; i++){
-            if (Character.isDigit(wholeText.charAt(i))){
-                startPos = Character.digit(wholeText.charAt(i),10);
-                if (startPos % 2 == 0){
-                    s = startPos + "";
-                    jTextArea3.append(s + '\n');
+                if (Character.isDigit(wholeText.charAt(i))) {
+                    s += Character.digit(wholeText.charAt(i), 10);
+                }else if (wholeText.charAt(i) == ' '){
+                    startPos = Integer.parseInt(s);
+                    if (startPos % 2 == 0) {
+                        s = startPos + "";
+                        jTextArea3.append(s + '\n');
+                    }
+                    s = "";
                 }
-            }
         }
     }
 
