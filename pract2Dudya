@@ -147,6 +147,11 @@ public class Root extends javax.swing.JFrame {
                     s = "";
                 }
         }
+        startPos = Integer.parseInt(s);
+        if (startPos % 2 == 0) {
+            s = startPos + "";
+            jTextArea3.append(s + '\n');
+        }
     }
 
     public static void main(String args[]) {
