@@ -1,0 +1,150 @@
+import java.util.ArrayList;
+
+public class RootFrame extends javax.swing.JFrame {
+
+    public RootFrame() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("лаб 4 Гальянов");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton1.setText("Посчитать");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1)
+                                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private static void bubbleSort(int[] arr){
+        int len = arr.length;
+        int temp = 0;
+
+        for(int i = 0; i < len; ++i){
+            for(int j = 1; j < len; ++j){
+                if(arr[j - 1] > arr[j]){
+                    temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String s = jTextArea1.getText();
+        String massiv = "";
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i< s.length(); i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                massiv +=Character.digit(s.charAt(i), 10);
+            }else if (s.charAt(i) == '-'){
+                massiv = "-";
+            } else if (s.charAt(i) == ' '){
+                list.add(Integer.parseInt(massiv));
+                massiv = "";
+            }
+        }
+        list.add(Integer.parseInt(massiv));
+        int[] arr = new int[list.size()];
+        for (int i = 0; i < list.size(); i++){
+            arr[i] = list.get(i);
+        }
+        jTextArea1.setText("Исходный массив\n");
+
+        for(int i = 0; i < list.size(); ++i){
+            String toAdd = Integer.toString(list.get(i));
+            jTextArea1.append(toAdd + "\t");
+        }
+
+        jTextArea1.append("\n----------------------------------------------------------------------------------");
+        jTextArea1.append("\nСумма элементов (x > 0)\n");
+        int sum = 0;
+        for(int i = 0; i < arr.length; ++i){
+            if(arr[i] > 0){
+                sum += arr[i];
+            }
+        }
+        String total = Integer.toString(sum);
+        jTextArea1.append(total);
+        jTextArea1.append("\n----------------------------------------------------------------------------------");
+
+        jTextArea1.append("\nОтсортированный массив\n");
+        bubbleSort(arr);
+        for(int i = 0; i < arr.length; ++i){
+            String toAdd = Integer.toString(arr[i]);
+            jTextArea1.append(toAdd + "\t");
+        }
+        jTextArea1.append("\n");
+    }
+
+    public static void main(String args[]) {
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RootFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RootFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RootFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RootFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RootFrame().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    // End of variables declaration                   
+}
