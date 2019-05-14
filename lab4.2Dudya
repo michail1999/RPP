@@ -145,7 +145,7 @@ public class RootForm extends JFrame implements KeyListener {
 
         jLabel2.setText("Warning: 0");
         String text = this.wholeText;
-        char[] digits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        char[] digits = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ','};
 
         if (!text.isEmpty()) {
 
@@ -217,7 +217,7 @@ public class RootForm extends JFrame implements KeyListener {
             // ------------------------------ Calculations ------------------------------ //
 
             String num = "";
-            LinkedList<Integer> array = new LinkedList<>();
+            LinkedList<Double> array = new LinkedList<>();
 
             // adding elements to array
             for(int i = 0; i < text.length();){
@@ -231,7 +231,7 @@ public class RootForm extends JFrame implements KeyListener {
                             num+= text.charAt(i);
                     }
                 }
-                array.add(Integer.parseInt(num));
+                array.add(Double.parseDouble(num));
                 num = "";
                 ++i;
             }
@@ -256,13 +256,13 @@ public class RootForm extends JFrame implements KeyListener {
             jTextArea1.append(formatter.format(srArifm));
             jTextArea1.append("\n----------------------------------------------------------------------------------");
 
-            Integer[] toBubble = array.toArray(new Integer[array.size()]);
+            Double[] toBubble = array.toArray(new Double[array.size()]);
 
             jTextArea1.append("\nОтсортированный массив\n");
             bubbleSort(toBubble);
 
             for(int i = 0; i < toBubble.length; ++i){
-                String toAdd = Integer.toString(toBubble[i]);
+                String toAdd = Double.toString(toBubble[i]);
                 jTextArea1.append(toAdd + "\t");
             }
             jTextArea1.append("\n");
@@ -272,9 +272,9 @@ public class RootForm extends JFrame implements KeyListener {
 
     }
 
-    private static void bubbleSort(Integer[] arr){
+    private static void bubbleSort(Double[] arr){
         int len = arr.length;
-        int key;
+        double key;
         for (int i = 1; i < len; i++) {
             key = arr[i];
             int j = i - 1;
@@ -399,6 +399,11 @@ public class RootForm extends JFrame implements KeyListener {
             case KeyEvent.VK_CONTROL:
                 break;
             case KeyEvent.VK_ALT:
+                break;
+
+            case KeyEvent.VK_COMMA:
+                break;
+            case KeyEvent.VK_PERIOD:
                 break;
             default:
                 wholeText = jTextField1.getText();
