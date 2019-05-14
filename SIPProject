@@ -54,3 +54,118 @@ public class Player {
     ArrayList<Integer> figure  = new ArrayList<Integer>();
     // Тут будет обращение к мат модулю
 }
+
+public class Info{
+    ArrayList<Field> fields = new ArrayList<Field>();
+    ArrayList<Integer> fieldsCoordinates = new ArrayList<Integer>(); // хранит координаты полей, нужен только для старта при создании поля
+    ArrayList<Character> characters = new ArrayList<Character>();
+
+    FabricField fabric_Field = new FabricField();
+
+    Player N1 = new Player();
+    Player N2 = new Player();
+    Player N3 = new Player();
+
+    
+
+    void Start(Info Base){
+        
+        // Зона 1
+        fieldsCoordinates.add(1111);//Это
+        fieldsCoordinates.add(1221);//База
+        fieldsCoordinates.add(1331);//Игрока
+        fieldsCoordinates.add(1441);//Это тоже
+        fieldsCoordinates.add(1112);
+        fieldsCoordinates.add(1222);
+        fieldsCoordinates.add(1332);
+        fieldsCoordinates.add(1442);
+        fieldsCoordinates.add(1113);
+        fieldsCoordinates.add(1223);
+        fieldsCoordinates.add(1333);
+        fieldsCoordinates.add(1443);
+        // Зона 2
+        fieldsCoordinates.add(2131);//Это
+        fieldsCoordinates.add(2232);//База
+        fieldsCoordinates.add(2333);//Игрока
+        fieldsCoordinates.add(2434);//Это тоже
+        fieldsCoordinates.add(2124);
+        fieldsCoordinates.add(2223);
+        fieldsCoordinates.add(2322);
+        fieldsCoordinates.add(2421);
+        fieldsCoordinates.add(2114);
+        fieldsCoordinates.add(2213);
+        fieldsCoordinates.add(2312);
+        fieldsCoordinates.add(2411);
+        // Зона 3
+        fieldsCoordinates.add(3111);//Это
+        fieldsCoordinates.add(3122);//База
+        fieldsCoordinates.add(3133);//Игрока
+        fieldsCoordinates.add(3144);//Это тоже
+        fieldsCoordinates.add(3211);
+        fieldsCoordinates.add(3222);
+        fieldsCoordinates.add(3233);
+        fieldsCoordinates.add(3244);
+        fieldsCoordinates.add(3311);
+        fieldsCoordinates.add(3322);
+        fieldsCoordinates.add(3333);
+        fieldsCoordinates.add(3344);
+        // Зона 4
+        fieldsCoordinates.add(4114); //шахта
+        fieldsCoordinates.add(4213);
+        fieldsCoordinates.add(4312);
+        fieldsCoordinates.add(4411); //шахта
+        fieldsCoordinates.add(4214);
+        fieldsCoordinates.add(4313);
+        fieldsCoordinates.add(4412);
+        fieldsCoordinates.add(4224);
+        fieldsCoordinates.add(4323);
+        fieldsCoordinates.add(4422);
+        fieldsCoordinates.add(4324);
+        fieldsCoordinates.add(4423);
+        fieldsCoordinates.add(4334);
+        fieldsCoordinates.add(4433);
+        fieldsCoordinates.add(4434);
+        fieldsCoordinates.add(4444); //шахта
+        
+        for (int i = 0; i<55; i++){
+            fields.add(fabric_Field.createField());
+            fields.get(i).coordinate = fieldsCoordinates.get(i);
+            if (Base.fields.get(i).coordinate == 4114 | fields.get(i).coordinate == 4411 | fields.get(i).coordinate == 4444){
+                fields.get(i).type = 3; // Это Рудник
+            }
+            else if (fields.get(i).coordinate == 1111 &
+            fields.get(i).coordinate == 1221 |
+            fields.get(i).coordinate == 1331 |
+            fields.get(i).coordinate == 1441 |
+
+            fields.get(i).coordinate == 2134 |
+            fields.get(i).coordinate == 2233 |
+            fields.get(i).coordinate == 2332 |
+            fields.get(i).coordinate == 2431 |
+
+            fields.get(i).coordinate == 3111 |
+            fields.get(i).coordinate == 3122 |
+            fields.get(i).coordinate == 3133 |
+            fields.get(i).coordinate == 3144
+             ){
+                fields.get(i).type = 1; // Это поле является королевством игрока
+            }
+             else{
+                Base.fields.get(i).type = 2; // Это обычное поле
+            }
+
+
+        }
+
+
+
+
+
+
+
+        // открытие окна игрока, который ходит
+    }
+}
+
+
+
