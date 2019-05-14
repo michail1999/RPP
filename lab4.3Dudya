@@ -131,9 +131,9 @@ public class RootForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
-    private static Integer[] bubbleSort(Integer[] arr){
+    private static Double[] bubbleSort(Double[] arr){
         int len = arr.length;
-        int key;
+        double key;
         for (int i = 1; i < len; i++) {
             key = arr[i];
             int j = i - 1;
@@ -188,15 +188,15 @@ public class RootForm extends javax.swing.JFrame {
         DecimalFormat formatter = new DecimalFormat("#0.00");
         ta.append(formatter.format(srArifm));
 
-        LinkedList<Integer> arr2 = new LinkedList<>();
+        LinkedList<Double> arr2 = new LinkedList<>();
 
         for(int i = 0; i < array.size(); ++i){
-            Integer e = Integer.parseInt(array.get(i));
+            Double e = Double.parseDouble(array.get(i));
             arr2.add(e);
         }
 
-        Integer[] toBubble = arr2.toArray(new Integer[arr2.size()]);
-        Integer[] sorted = bubbleSort(toBubble);
+        Double[] toBubble = arr2.toArray(new Double[arr2.size()]);
+        Double[] sorted = bubbleSort(toBubble);
 
         for(Integer i = 0; i < tableO.getModel().getRowCount(); ++i){
             for(Integer j = 0; j < tableO.getModel().getColumnCount(); ++j){
