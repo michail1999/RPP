@@ -1,0 +1,111 @@
+import java.awt.event.ActionEvent;
+
+public class RootForm extends javax.swing.JFrame {
+
+    public RootForm() {
+        initComponents();
+
+        byte_menu.addActionListener((ActionEvent e) -> {
+            javax.swing.JFrame frame = new ByteForm();
+            frame.setVisible(true);
+        });
+
+        float_menu.addActionListener((ActionEvent e) -> {
+            javax.swing.JFrame frame = new FloatForm();
+            frame.setVisible(true);
+        });
+
+        double_menu.addActionListener((ActionEvent e) -> {
+            javax.swing.JFrame frame = new DoubleForm();
+            frame.setVisible(true);
+        });
+
+        char_menu.addActionListener((ActionEvent e) -> {
+            javax.swing.JFrame frame = new CharForm();
+            frame.setVisible(true);
+        });
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jMenuBar1 = new javax.swing.JMenuBar();
+        rootMenu = new javax.swing.JMenu();
+        byte_menu = new javax.swing.JMenuItem();
+        float_menu = new javax.swing.JMenuItem();
+        double_menu = new javax.swing.JMenuItem();
+        char_menu = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("practice_3");
+        setResizable(false);
+
+        rootMenu.setText("Variables");
+
+        byte_menu.setText("Byte");
+        byte_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                byte_menuActionPerformed(evt);
+            }
+        });
+        rootMenu.add(byte_menu);
+
+        float_menu.setText("Float");
+        rootMenu.add(float_menu);
+
+        double_menu.setText("Double");
+        rootMenu.add(double_menu);
+
+        char_menu.setText("Character");
+        rootMenu.add(char_menu);
+
+        jMenuBar1.add(rootMenu);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 459, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 94, Short.MAX_VALUE)
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>                        
+
+    private void byte_menuActionPerformed(java.awt.event.ActionEvent evt) {
+
+    }
+
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RootForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new RootForm().setVisible(true);
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JMenuItem byte_menu;
+    private javax.swing.JMenuItem char_menu;
+    private javax.swing.JMenuItem double_menu;
+    private javax.swing.JMenuItem float_menu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu rootMenu;
+    // End of variables declaration                   
+}
