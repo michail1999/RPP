@@ -1,0 +1,340 @@
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+
+public class ByteForm extends javax.swing.JFrame {
+
+    public ByteForm() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_ds = new javax.swing.JTable();
+        left = new javax.swing.JButton();
+        right = new javax.swing.JButton();
+        convert = new javax.swing.JButton();
+        tf = new javax.swing.JTextField();
+        reverse = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        table_bit = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+
+        setTitle("Byte");
+        setResizable(false);
+
+        table_ds.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null}
+                },
+                new String [] {
+                        "Number in DS"
+                }
+        ) {
+            Class[] types = new Class [] {
+                    java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(table_ds);
+        if (table_ds.getColumnModel().getColumnCount() > 0) {
+            table_ds.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        left.setText("<<");
+        left.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                leftActionPerformed(evt);
+            }
+        });
+
+        right.setText(">>");
+        right.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rightActionPerformed(evt);
+            }
+        });
+
+        convert.setText("Convert");
+        convert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                convertActionPerformed(evt);
+            }
+        });
+
+        reverse.setText("Reverse");
+        reverse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reverseActionPerformed(evt);
+            }
+        });
+
+        table_bit.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                        {null, null, null, null, null, null, null, null, null}
+                },
+                new String [] {
+                        "Bits", "128", "64", "32", "16", "8", "4", "2", "1"
+                }
+        ) {
+            Class[] types = new Class [] {
+                    java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                    false, true, true, true, true, true, true, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(table_bit);
+        if (table_bit.getColumnModel().getColumnCount() > 0) {
+            table_bit.getColumnModel().getColumn(0).setResizable(false);
+            table_bit.getColumnModel().getColumn(1).setResizable(false);
+            table_bit.getColumnModel().getColumn(2).setResizable(false);
+            table_bit.getColumnModel().getColumn(3).setResizable(false);
+            table_bit.getColumnModel().getColumn(4).setResizable(false);
+            table_bit.getColumnModel().getColumn(5).setResizable(false);
+            table_bit.getColumnModel().getColumn(6).setResizable(false);
+            table_bit.getColumnModel().getColumn(7).setResizable(false);
+            table_bit.getColumnModel().getColumn(8).setResizable(false);
+        }
+
+        jLabel3.setText("Sign");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(33, 33, 33)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(right, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                                                                        .addComponent(left, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(tf, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(reverse, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(69, 69, 69)
+                                                .addComponent(jLabel3))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(convert, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(left)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(right))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(convert)
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(reverse))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>
+
+    private void convertActionPerformed(java.awt.event.ActionEvent evt) {
+        if(table_ds.getModel().getValueAt(0, 0) != null){
+            Integer value = Integer.parseInt(table_ds.getModel().getValueAt(0, 0).toString());
+            if(value > Byte.MAX_VALUE){
+                JOptionPane.showMessageDialog(rootPane, "Value cannot be bigger than 127", "Error", ERROR_MESSAGE);
+            }else if(value < Byte.MIN_VALUE){
+                JOptionPane.showMessageDialog(rootPane, "Value cannot be less than -128", "Error", ERROR_MESSAGE);
+            }else{
+                long bit;
+                String bitRep = "";
+                for(bit = 1; bit <= 128; bit *= 2){
+                    if((value & (int)bit) != 0)
+                        bitRep = "1" + bitRep;
+                    else bitRep = "0" + bitRep;
+                }
+
+                for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+                    for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                        table_bit.getModel().setValueAt(bitRep.charAt(j - 1), i, j);
+                    }
+                }
+            }
+        }else JOptionPane.showMessageDialog(rootPane, "Enter number in table 1", "Error", ERROR_MESSAGE);
+    }
+
+    private void reverseActionPerformed(java.awt.event.ActionEvent evt) {
+        String bin = "";
+
+        for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+            for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                if(table_bit.getModel().getValueAt(i, j) == null){
+                    JOptionPane.showMessageDialog(rootPane, "Enter numbers in table 2", "Error", ERROR_MESSAGE);
+                    return;
+                }else if(!("1".equals(table_bit.getModel().getValueAt(i, j).toString()) || "0".equals(table_bit.getModel().getValueAt(i, j).toString()))){
+                    JOptionPane.showMessageDialog(rootPane, "Enter numbers in table 2 correctly", "Error", ERROR_MESSAGE);
+                    return;
+                }else{
+                    bin += table_bit.getModel().getValueAt(i, j).toString();
+                }
+            }
+        }
+
+        long l = Long.parseLong(bin, 2);
+        byte i = (byte)l;
+        tf.setText(Byte.toString(i));
+    }
+
+    private void leftActionPerformed(java.awt.event.ActionEvent evt) {
+
+        if(table_ds.getModel().getValueAt(0, 0) == null){
+            JOptionPane.showMessageDialog(rootPane, "Enter value to the first table", "Error", ERROR_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) == 0){
+            JOptionPane.showMessageDialog(rootPane, "You cannot do left shift from 0", "Warning", WARNING_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) > 0){
+            if((Integer)table_ds.getModel().getValueAt(0, 0) < Byte.MAX_VALUE){
+                table_ds.getModel().setValueAt((Integer)table_ds.getModel().getValueAt(0, 0) << 1, 0, 0);
+
+                Integer value = Integer.parseInt(table_ds.getModel().getValueAt(0, 0).toString());
+                long bit;
+                String bitRep = "";
+                for(bit = 1; bit <= 128; bit *= 2){
+                    if((value & (int)bit) != 0)
+                        bitRep = "1" + bitRep;
+                    else bitRep = "0" + bitRep;
+                }
+
+                for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+                    for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                        table_bit.getModel().setValueAt(bitRep.charAt(j - 1), i, j);
+                    }
+                }
+            }else JOptionPane.showMessageDialog(rootPane, "You cannot do left shift any more", "Warning", ERROR_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) < 0){
+            if((Integer)table_ds.getModel().getValueAt(0, 0) > Byte.MIN_VALUE){
+                table_ds.getModel().setValueAt((Integer)table_ds.getModel().getValueAt(0, 0) << 1, 0, 0);
+
+                Integer value = Integer.parseInt(table_ds.getModel().getValueAt(0, 0).toString());
+                long bit;
+                String bitRep = "";
+                for(bit = 1; bit <= 128; bit *= 2){
+                    if((value & (int)bit) != 0)
+                        bitRep = "1" + bitRep;
+                    else bitRep = "0" + bitRep;
+                }
+
+                for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+                    for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                        table_bit.getModel().setValueAt(bitRep.charAt(j - 1), i, j);
+                    }
+                }
+            }else JOptionPane.showMessageDialog(rootPane, "You cannot do left shift any more", "Warning", ERROR_MESSAGE);
+        }
+    }
+
+    private void rightActionPerformed(java.awt.event.ActionEvent evt) {
+        if(table_ds.getModel().getValueAt(0, 0) == null){
+            JOptionPane.showMessageDialog(rootPane, "Enter value to the first table", "Error", ERROR_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) == 0){
+            JOptionPane.showMessageDialog(rootPane, "You cannot do right shift from 0", "Warning", WARNING_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) > 0){
+            if((Integer)table_ds.getModel().getValueAt(0, 0) < Byte.MAX_VALUE){
+                table_ds.getModel().setValueAt((Integer)table_ds.getModel().getValueAt(0, 0) >> 1, 0, 0);
+
+                Integer value = Integer.parseInt(table_ds.getModel().getValueAt(0, 0).toString());
+                long bit;
+                String bitRep = "";
+                for(bit = 1; bit <= 128; bit *= 2){
+                    if((value & (int)bit) != 0)
+                        bitRep = "1" + bitRep;
+                    else bitRep = "0" + bitRep;
+                }
+
+                for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+                    for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                        table_bit.getModel().setValueAt(bitRep.charAt(j - 1), i, j);
+                    }
+                }
+            }else JOptionPane.showMessageDialog(rootPane, "You cannot do right shift any more", "Warning", ERROR_MESSAGE);
+        }else if((Integer)table_ds.getModel().getValueAt(0, 0) < 0){
+            if((Integer)table_ds.getModel().getValueAt(0, 0) > Byte.MIN_VALUE){
+                table_ds.getModel().setValueAt((Integer)table_ds.getModel().getValueAt(0, 0) >> 1, 0, 0);
+
+                Integer value = Integer.parseInt(table_ds.getModel().getValueAt(0, 0).toString());
+                long bit;
+                String bitRep = "";
+                for(bit = 1; bit <= 128; bit *= 2){
+                    if((value & (int)bit) != 0)
+                        bitRep = "1" + bitRep;
+                    else bitRep = "0" + bitRep;
+                }
+
+                for(int i = 0; i < table_bit.getModel().getRowCount(); ++i){
+                    for(int j = 1; j < table_bit.getModel().getColumnCount(); ++j){
+                        table_bit.getModel().setValueAt(bitRep.charAt(j - 1), i, j);
+                    }
+                }
+            }else JOptionPane.showMessageDialog(rootPane, "You cannot do right shift any more", "Warning", ERROR_MESSAGE);
+        }
+    }
+
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ByteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new ByteForm().setVisible(true);
+        });
+    }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton convert;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton left;
+    private javax.swing.JButton reverse;
+    private javax.swing.JButton right;
+    private javax.swing.JTable table_bit;
+    private javax.swing.JTable table_ds;
+    private javax.swing.JTextField tf;
+    // End of variables declaration
+}
